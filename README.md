@@ -70,6 +70,18 @@ Includes setter and getter functions to ensure data encapsulation.
     ./student
     ```
 
+---
+
+## ▶️ Run Program Online
+You can run this project online using the Programiz C++ Online Compiler:
+
+🔗 **Run Here:**  
+https://www.programiz.com/online-compiler/3ud7OiPicHkP1
+
+Steps:
+1. Open the link  
+2. Click **Run**  
+3. Interact with the program through the console input  
 
 ---
 
