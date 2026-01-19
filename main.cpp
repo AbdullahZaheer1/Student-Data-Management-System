@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 class node
 {
@@ -297,6 +298,39 @@ public:
             temp = temp->next;
         }
     }
+    void saveToExcel()
+    {
+        if (head == NULL)
+        {
+            cout << "No Record in System!" << endl;
+            return;
+        }
+
+        // File Name
+        string filename = "students_record.csv";
+        ofstream file(filename);
+
+        // Header Row
+        file << "RollNo,Name,Department,Program,Semester,Shift,ContactNo\n";
+
+        node *temp = head;
+
+        while (temp != NULL)
+        {
+            file << temp->rollNo << ","
+                 << temp->stdName << ","
+                 << temp->depName << ","
+                 << temp->progName << ","
+                 << temp->Semester << ","
+                 << temp->Shift << ","
+                 << temp->contactNo << "\n";
+
+            temp = temp->next;
+        }
+
+        file.close();
+        cout << "All Records Successfully Saved to Excel File: " << filename << endl;
+    }
 };
 int main()
 {
@@ -310,6 +344,7 @@ int main()
         cout << "3. Update Student Record By Rollno" << endl;
         cout << "4. Search Student Record By Rollno" << endl;
         cout << "5. Display Records" << endl;
+        cout << "6. Save Records to Excel File" << endl;
         cout << "0. Exit" << endl;
         cout << "Enter Choose: ";
         cin >> choose;
@@ -490,6 +525,10 @@ int main()
         else if (choose == 5)
         {
             ll.Display();
+        }
+        else if (choose == 6)
+        {
+            ll.saveToExcel();
         }
         else if (choose == 0)
         {
